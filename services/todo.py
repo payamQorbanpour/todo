@@ -19,10 +19,7 @@ def hello():
 def show_lists():
     ''' Displays all the lists '''
 
-    tlists = []
-    for username in todo_list:
-        for lname in todo_list[username]:
-            tlists.append(lname)
+    tlists = [lname for username in todo_list for lname in todo_list[username]]
     return jsonify(lists=tlists)
 
 @app.route('/lists/<username>', methods=['GET'])
